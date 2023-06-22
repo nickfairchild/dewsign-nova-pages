@@ -119,7 +119,7 @@ class Page extends Model
      */
     public function authoriseToView()
     {
-        abort_if(Gate::denies('accessContent', $this), 403);
+//        abort_if(Gate::denies('accessContent', $this), 403);
     }
 
     /**
@@ -269,7 +269,7 @@ class Page extends Model
         if (!$page = static::withParent()->whereFullPath($path, $excludeMappedDomain = false)->first()) {
             return false;
         };
-        
+
         if ($page->full_path !== $page->getFullPath()) {
             return $page->mapped_url;
         };
